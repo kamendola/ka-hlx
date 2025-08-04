@@ -1,0 +1,146 @@
+/* Text content (desktop manifesto) */
+.text-content {
+  position: fixed;
+  left: 8%;
+  right: 55%;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: 'Atacama', Georgia, 'Times New Roman', serif;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+  line-height: var(--manifesto-line-height);
+  color: var(--manifesto-color);
+  z-index: 10;
+}
+
+.text-content p {
+  margin-bottom: 1.5rem;
+  font-size: var(--manifesto-font-size);
+  letter-spacing: var(--manifesto-letter-spacing);
+}
+
+/* Footer */
+.sticky-footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 40px;
+  z-index: 20;
+}
+
+.footer-content {
+  font-family: 'SF Mono Custom', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--footer-font-size);
+  line-height: var(--footer-line-height);
+  letter-spacing: var(--footer-letter-spacing);
+  color: var(--footer-color);
+  text-align: left;
+}
+
+.social-links {
+  margin-top: 4px;
+}
+
+.social-links a {
+  color: var(--footer-color);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--bg-color);
+  border: none;
+  cursor: pointer;
+  z-index: 30;
+  display: none;
+  font-family: 'SF Mono Custom', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--mobile-menu-font-size);
+  line-height: var(--footer-line-height);
+  letter-spacing: var(--footer-letter-spacing);
+  color: var(--footer-color);
+  padding: 4px 8px;
+}
+
+/* Mobile manifesto overlay */
+.mobile-manifesto {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  background-color: var(--bg-color);
+  z-index: 25;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.mobile-manifesto.active {
+  display: flex;
+}
+
+.mobile-manifesto.active ~ section {
+  visibility: hidden;
+}
+
+.mobile-manifesto .text-content {
+  position: static;
+  transform: none;
+  max-width: none;
+  width: 100%;
+  display: block;
+}
+
+.mobile-manifesto .footer-content {
+  position: absolute;
+  bottom: 0;
+  left: 2rem;
+  right: 2rem;
+  text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+/* Responsive typography */
+@media (max-width: 1200px) {
+  .text-content {
+    --manifesto-font-size: 16px;
+    --manifesto-line-height: 26px;
+  }
+}
+
+@media (max-width: 768px) {
+  .text-content {
+    --manifesto-font-size: 14px;
+    --manifesto-line-height: 22px;
+    --manifesto-letter-spacing: 8%;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  .text-content,
+  .sticky-footer {
+    display: none;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+}
