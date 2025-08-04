@@ -1,0 +1,45 @@
+version: 1
+indices:
+  projects:
+    include:
+      - '/portfolio-projects'
+    target: '/projects-index.json'
+    properties:
+      mediaUrl:
+        select: 'table tr td:nth-child(1) img, table tr td:nth-child(1) video'
+        value: attribute(el, 'src')
+      mediaType:
+        select: 'table tr td:nth-child(2)'
+        value: textContent(el)
+      tooltip:
+        select: 'table tr td:nth-child(3)'
+        value: textContent(el)
+  config:
+    include:
+      - '/seo-settings'
+    target: '/config-index.json'
+    properties:
+      pageTitle:
+        select: 'meta[name="page-title"]'
+        value: attribute(el, 'content')
+      metaDescription:
+        select: 'meta[name="meta-description"]'
+        value: attribute(el, 'content')
+      metaKeywords:
+        select: 'meta[name="meta-keywords"]'
+        value: attribute(el, 'content')
+      ogTitle:
+        select: 'meta[name="og-title"]'
+        value: attribute(el, 'content')
+      ogDescription:
+        select: 'meta[name="og-description"]'
+        value: attribute(el, 'content')
+      ogImage:
+        select: 'meta[name="og-image"]'
+        value: attribute(el, 'content')
+      ogUrl:
+        select: 'meta[name="og-url"]'
+        value: attribute(el, 'content')
+      favicon:
+        select: 'meta[name="favicon"]'
+        value: attribute(el, 'content')
