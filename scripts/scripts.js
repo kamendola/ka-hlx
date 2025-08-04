@@ -127,3 +127,11 @@ async function loadPage() {
 }
 
 loadPage();
+
+import { loadSEOConfig } from './seo-manager.js';
+
+// Add to your existing DOMContentLoaded event or create it
+document.addEventListener('DOMContentLoaded', async () => {
+  // Load SEO configuration from Google Docs
+  await loadSEOConfig();
+});
