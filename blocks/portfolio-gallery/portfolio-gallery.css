@@ -1,0 +1,130 @@
+/* Your exact CSS styles */
+.portfolio-gallery {
+  /* All your CSS variables */
+  --bg-color: #f0f0f0;
+  --text-color: #333333;
+  --placeholder-color: #cccccc;
+  --link-color: rgba(102, 102, 102, 0.7);
+  --link-hover-color: #666;
+  --manifesto-color: #606060;
+  --footer-color: #000000;
+  --tooltip-color: #000000;
+  
+  --gallery-max-width: 720px;
+  --gallery-spacing: 8px;
+  --gallery-height: 120px;
+  
+  --manifesto-font-size: 18px;
+  --manifesto-line-height: 30px;
+  --manifesto-letter-spacing: 10%;
+  --footer-font-size: 10px;
+  --footer-line-height: 20px;
+  --footer-letter-spacing: 0%;
+  --tooltip-font-size: 10px;
+  --tooltip-line-height: 20px;
+  --tooltip-letter-spacing: 0%;
+  --mobile-menu-font-size: 14px;
+}
+
+/* Gallery styles */
+article {
+  background-color: var(--bg-color);
+  padding: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.gallery-item {
+  width: 100%;
+  max-width: var(--gallery-max-width);
+  margin: var(--gallery-spacing) auto;
+  border-radius: 0;
+  display: block;
+  background-color: var(--placeholder-color);
+  min-height: var(--gallery-height);
+  cursor: crosshair;
+}
+
+article img, article video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Desktop layout - gallery on right */
+@media (min-width: 768px) {
+  .gallery-item {
+    width: min(calc(50vw - 2rem), var(--gallery-max-width));
+    margin: var(--gallery-spacing) 1rem var(--gallery-spacing) auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-item {
+    width: min(calc(45vw - 2rem), var(--gallery-max-width));
+    margin: var(--gallery-spacing) 2rem var(--gallery-spacing) auto;
+  }
+}
+
+/* Loading screen */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-percentage {
+  font-family: 'SF Mono Custom', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-size: 12px;
+  color: var(--text-color);
+  letter-spacing: 0.1em;
+}
+
+.content-hidden {
+  visibility: hidden;
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed;
+  background-color: var(--bg-color);
+  padding: 4px 8px;
+  font-family: 'SF Mono Custom', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--tooltip-font-size);
+  line-height: var(--tooltip-line-height);
+  letter-spacing: var(--tooltip-letter-spacing);
+  color: var(--tooltip-color);
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  white-space: pre-line;
+}
+
+.tooltip.visible {
+  opacity: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 767px) {
+  article {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
